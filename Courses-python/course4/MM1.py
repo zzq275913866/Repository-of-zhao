@@ -76,6 +76,7 @@ class Que:
 
 
 class ServExpEv:
+    doc = open('out.txt', 'w')
     packetBeingServed = None
     time = 0
     q = ()
@@ -86,7 +87,7 @@ class ServExpEv:
     def execute(self, sim):
         soj_t = self.time - self.packetBeingServed.created
         print('%f\n' % soj_t)
-        print('%f' % soj_t, file=open('out.txt', 'w'))
+        print('%f' % soj_t, file=self.doc)
         self.packetBeingServed = None
 
         if len(self.q.que) != 0:
